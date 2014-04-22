@@ -10,8 +10,12 @@ namespace KMMedia.Console.Domain {
     public class RequestExecutor {
         private readonly Dictionary<string, Request> requests = new Dictionary<string, Request>();
         private readonly Dictionary<Service, Tuple<Response, bool>> responses = new Dictionary<Service, Tuple<Response, bool>>();
-        private readonly Scheduler scheduler = new Scheduler();
+        private readonly Scheduler scheduler;
         private int pendingRequestsCount;
+
+        public RequestExecutor(Scheduler scheduler) {
+            this.scheduler = scheduler;
+        }
 
         public bool IsTimedOut { get; private set; }
 
