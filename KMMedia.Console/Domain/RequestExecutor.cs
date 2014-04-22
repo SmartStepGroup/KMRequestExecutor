@@ -1,5 +1,6 @@
 ﻿#region Usings
 
+using System;
 using System.Collections.Generic;
 using System.Threading;
 
@@ -8,6 +9,7 @@ using System.Threading;
 namespace KMMedia.Console.Domain {
     public class RequestExecutor {
         private readonly Dictionary<string, Request> requests = new Dictionary<string, Request>();
+        private readonly Dictionary<Service, Tuple<Response, bool>> responses = new Dictionary<Service, Tuple<Response, bool>>();
         private readonly Scheduler scheduler = new Scheduler();
         private int pendingRequestsCount;
 
@@ -30,9 +32,10 @@ namespace KMMedia.Console.Domain {
             }
         }
 
-        public void SetResponse() {
+        public void SetResponse(Service service, Response response, bool callFailed) {
             System.Console.WriteLine("pendingRequestsCount--");
             Interlocked.Decrement(ref pendingRequestsCount);
+            responses[service] = new Tuple<Response, bool>(response, !callFailed);
         }
 
         public void Add(string serviceName, Request request) {

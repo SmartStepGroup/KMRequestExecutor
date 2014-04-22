@@ -9,7 +9,7 @@
         }
 
         public virtual void Execute() {
-            requestExecutor.SetResponse();
+            requestExecutor.SetResponse(service, new Response(), false);
         }
     }
 }
