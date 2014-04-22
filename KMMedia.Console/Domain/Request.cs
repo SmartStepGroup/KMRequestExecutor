@@ -1,15 +1,16 @@
 ﻿namespace KMMedia.Console.Domain {
     public class Request {
         private readonly RequestExecutor requestExecutor;
-        private readonly Service service;
-
         public Request(RequestExecutor requestExecutor, Service service) {
             this.requestExecutor = requestExecutor;
-            this.service = service;
+            Service = service;
         }
 
-        public virtual void Execute() {
-            requestExecutor.SetResponse(service, new Response(), false);
+        public Service Service { get; private set; }
+
+        public virtual void Execute()
+        {
+            requestExecutor.SetResponse(Service, new Response(), false);
         }
     }
 }

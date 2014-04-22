@@ -9,7 +9,7 @@ using System.Threading;
 namespace KMMedia.Console.Domain {
     public class RequestExecutor {
         private readonly Dictionary<string, Request> requests = new Dictionary<string, Request>();
-        private readonly Dictionary<Service, Tuple<Response, bool>> responses = new Dictionary<Service, Tuple<Response, bool>>();
+        protected readonly Dictionary<Service, Tuple<Response, bool>> responses = new Dictionary<Service, Tuple<Response, bool>>();
         private readonly Scheduler scheduler;
         private int pendingRequestsCount;
 

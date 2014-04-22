@@ -6,7 +6,7 @@ namespace KMMedia.Console.Domain {
         private Action onTimeoutAction;
         private Timer timer;
 
-        public void Execute(Request request) {
+        public virtual void Execute(Request request) {
             new Thread(request.Execute).Start();
         }
 
