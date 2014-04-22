@@ -1,15 +1,15 @@
-﻿using System;
-
-namespace KMMedia.Console.Domain {
+﻿namespace KMMedia.Console.Domain {
     public class Request {
+        private readonly RequestExecutor requestExecutor;
         private readonly Service service;
 
-        public Request(Service service) {
+        public Request(RequestExecutor requestExecutor, Service service) {
+            this.requestExecutor = requestExecutor;
             this.service = service;
         }
 
-        public void Execute() {
-            System.Console.WriteLine(service.LoadData());
+        public virtual void Execute() {
+            requestExecutor.SetResponse();
         }
     }
 }

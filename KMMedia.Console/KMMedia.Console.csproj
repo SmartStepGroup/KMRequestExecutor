@@ -46,6 +46,7 @@
     <Compile Include="Domain\Processor.cs" />
     <Compile Include="Domain\Request.cs" />
     <Compile Include="Domain\RequestExecutor.cs" />
+    <Compile Include="Domain\Scheduler.cs" />
     <Compile Include="Domain\Service.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
