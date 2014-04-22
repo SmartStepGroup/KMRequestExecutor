@@ -47,8 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RequestExecutorTest.cs" />
-    <Compile Include="RequestFake.cs" />
+    <Compile Include="WhenExecuteRequestForOneService.cs" />
+    <Compile Include="SuccessRequest.cs" />
     <Compile Include="SchedulerTest.cs" />
     <Compile Include="SyncScheduler.cs" />
     <Compile Include="TestableRequestExecutor.cs" />
